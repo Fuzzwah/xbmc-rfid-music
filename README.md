@@ -38,5 +38,18 @@ Run the above command, you'll be prompted to swipe the card you wish to assign t
 
     python rfid-music.py
 
-You should see a notification in XBMC that RFID Music has connected. Swipe a card and it should kick off playback of your playlist.
+You should see a notification in XBMC that RFID Music has connected. Swipe a card and it should kick off playback of your playlist. Hit `ctrl+c` to kill off your test run.
     
+6a) If you want to run the system as a service do the following:
+
+    sudo chmod 755 rfid-music.py
+    sudo cp xbmc-rfid-music /etc/init.d/
+    sudo chmod 755 /etc/init.d/xbmc-rfid-music
+    sudo update-rc.d xbmc-rfid-music defaults
+
+6b) Or you can fire the two python scripts and stick them into the background using screen:
+
+    sudo apt-get install screen
+    screen -dmS rfid-music python rfid-music.py
+
+Then you can attach to each screen using `screen -r mplayer-web` or `screen -r mplayer-mouse` and detach with `Ctrl+a Ctrl+d`.
