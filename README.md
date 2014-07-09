@@ -11,6 +11,15 @@ The card to playlist database is managed by the addcard.py script.
 
 The whole system was created for use on a Raspberry Pi running XBian. If you're running XBMC on top of a different system, you may run into problems. I'm sorry but I can't really help you with support.
 
+### Hardware
+
+I purchased the following from ent-mart.com:
+
+* [125Khz RFID EM410X Reader]: http://www.ent-mart.com/catalog/product_info.php/cPath/49/products_id/108 US$5.50
+* [50x 125khz RFID ID Cards 0.8mm]: http://www.ent-mart.com/catalog/product_info.php/cPath/40_41_56/products_id/140 US$14.00
+
+That particular RFID reader doesn't require any drivers for use with Windows or Linux. When a card is swipted it simply seems as though the card number has been entered from a keyboard, followed by the enter key.
+
 ### Installation
 
 1) Install dependancies:
