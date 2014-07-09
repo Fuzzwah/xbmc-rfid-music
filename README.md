@@ -50,7 +50,7 @@ Where `ATTRS{idVendor}=="076b" ATTRS{idProduct}=="532a"` contain the details you
 
 7) Confirm that the settings in the `conf.py` file are correct for your setup
 
-8) Build your card to playlist database using the 'addcard.py' script:
+8) Build your card to playlist database using the `addcard.py` script:
 
     python addcard.py ~/.xbmc/userdata/Playlists/music/PlayListFile.m3u
 
@@ -74,4 +74,4 @@ You should see a notification in XBMC that RFID Music has connected. Swipe a car
     sudo apt-get install screen
     screen -dmS rfid-music python rfid-music.py
 
-Then you can attach to each screen using `screen -r mplayer-web` or `screen -r mplayer-mouse` and detach with `Ctrl+a Ctrl+d`.
+Then you can attach to screen using `screen -r rfid-music` and detach with `Ctrl+a Ctrl+d`.
