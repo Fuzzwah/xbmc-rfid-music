@@ -47,7 +47,7 @@ You should see a notification in XBMC that RFID Music has connected. Swipe a car
     sudo chmod 755 /etc/init.d/xbmc-rfid-music
     sudo update-rc.d xbmc-rfid-music defaults
 
-6b) Or you can fire the two python scripts and stick them into the background using screen:
+6b) Or you can run the python script in the background using screen:
 
     sudo apt-get install screen
     screen -dmS rfid-music python rfid-music.py
