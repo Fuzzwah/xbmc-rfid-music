@@ -18,6 +18,12 @@ I purchased the following from ent-mart.com:
 * [125Khz RFID EM410X Reader](http://www.ent-mart.com/catalog/product_info.php/cPath/49/products_id/108) US$5.50
 * [50x 125khz RFID ID Cards 0.8mm](http://www.ent-mart.com/catalog/product_info.php/cPath/40_41_56/products_id/140) US$14.00
 
+I also purchased the following from Amazon.com:
+
+* [Adhesive Name Badges](http://www.amazon.com/gp/product/B00007LVCN/ref=oh_details_o00_s00_i00?ie=UTF8&psc=1) US$16.72
+* [Business Card Magnets](http://www.amazon.com/gp/product/B002YNQ8OI/ref=oh_details_o00_s01_i00?ie=UTF8&psc=1) US$9.21
+* [22" x 35" Magnetic Dry Erase Board](http://www.amazon.com/Board-Dudes-Decor-Magnetic-87060UN-4/dp/B001G60IT0) US$29.99
+
 ![hardware](rfid-music.jpg?raw=true)
 
 That particular RFID reader doesn't require any drivers for use with Windows or Linux. When a card is swipted it simply seems as though the card number has been entered from a keyboard, followed by the enter key.
