@@ -13,7 +13,7 @@ The whole system was created for use on a Raspberry Pi running XBian. If you're 
 
 ### Installation
 
-* Install dependancies:
+1) Install dependancies:
 
     sudo sed -i '/_hashlib.so/d' /var/lib/dpkg/info/python2.7.list
     sudo sed -i '/_ssl.so/d' /var/lib/dpkg/info/python2.7.list
@@ -24,17 +24,17 @@ The whole system was created for use on a Raspberry Pi running XBian. If you're 
     
 The first 4 commands are required because there is an issue with installing python-dev tools on XBian.
 
-* Create winamp m3u compatible playlists and store them in ~/.xbmc/userdata/Playlists/music/ (I have included a visualbasic script which I used to create my playlists)
+2) Create winamp m3u compatible playlists and store them in `~/.xbmc/userdata/Playlists/music/` (I have included a visualbasic script which I used to create my playlists)
 
-* Confirm that the settings in the 'conf.py' file are correct for your setup
+3) Confirm that the settings in the `conf.py` file are correct for your setup
 
-* Build your card to playlist database using the 'addcard.py' script:
+4) Build your card to playlist database using the 'addcard.py' script:
 
     python addcard.py ~/.xbmc/userdata/Playlists/music/PlayListFile.m3u
 
 Run the above command, you'll be prompted to swipe the card you wish to assign this playlist to. Repeat for all your cards / playlists.
 
-* Run the 'rfid-music.py' script and give it a test.
+5) Run the `rfid-music.py` script and give it a test.
 
     python rfid-music.py
 
