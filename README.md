@@ -82,6 +82,7 @@ You should see a notification in XBMC that RFID Music has connected. Swipe a car
 10a) If you want to run the system as a service do the following:
 
     sudo chmod 755 rfid-music.py
+    sudo chmod 755 xbmc-rfid-music
     sudo cp xbmc-rfid-music /etc/init.d/
     sudo chmod 755 /etc/init.d/xbmc-rfid-music
     sudo update-rc.d xbmc-rfid-music defaults
