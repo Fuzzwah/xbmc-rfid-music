@@ -74,7 +74,7 @@ for event in dev.read_loop():
 			print(playlist)
 			# if the card didn't have a playlist assigned, fire api call to display msg in xbmc
 			if playlist == None:
-				xbmc.send_notification(PROGRAM, "Card has no playlist assigned.", 5000, ICON)
+				xbmc.send_notification(PROGRAM, "Card has no playlist assigned", "5000")
 			# check if this playlist is one of the "special" ones
 			elif playlist == "shuffle":
 				xbmc.send_action("XBMC.PlayerControl(Random)")
