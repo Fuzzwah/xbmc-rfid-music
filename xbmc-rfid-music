@@ -11,8 +11,8 @@
 ### END INIT INFO
 
 # Configure these:
-DIR=/home/rfid/xbmc-rfid-music
-DAEMON_USER=rfid
+DIR=/home/xbian/xbmc-rfid-music
+DAEMON_USER=root
 # End of Config
 
 DAEMON=$DIR/rfid-music.py
