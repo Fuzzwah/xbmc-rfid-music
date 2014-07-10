@@ -11,6 +11,8 @@ The card to playlist database is managed by the addcard.py script.
 
 The whole system was created for use on a Raspberry Pi running XBian. If you're running XBMC on top of a different system, you may run into problems. I'm sorry but I can't really help you with support.
 
+While the primary focus of the project is to trigger playback of music, the system can easily be modified to trigger anything on the system including any XBMC command or executing any shell script. I personally have cards which will kick off photo slideshows, restart XBMC, reboot the whole system and send sms messages.
+
 ### Hardware
 
 I purchased the following from ent-mart.com:

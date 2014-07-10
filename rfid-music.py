@@ -80,7 +80,6 @@ class MyLogger(object):
 sys.stdout = MyLogger(logger, logging.INFO)
 # Replace stderr with logging to file at ERROR level
 sys.stderr = MyLogger(logger, logging.ERROR)
- 
 
 dev = InputDevice(rfidreader)
 PROGRAM = "RFID Music"
