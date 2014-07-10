@@ -1,5 +1,6 @@
 addold.py
 playlists.db
+*.pid
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
