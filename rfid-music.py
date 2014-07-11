@@ -36,6 +36,7 @@ import os, sys, shelve, logging, logging.handlers, argparse
 from conf import *
 from xbmcclient import XBMCClient
 from evdev import InputDevice, categorize, ecodes
+from random import randrange
 
 # set up all the logging stuff
 LOG_FILENAME = "/tmp/xbmc-rfid-music.log"
@@ -111,6 +112,12 @@ except IOError:
    print >> sys.stderr, "File could not be opened"
    sys.exit( 1 )
 
+def tracknum(fname):
+    with open(fname) as f:
+        for i, l in enumerate(f):
+            pass
+    return i
+
 # wait for events from the rfid reader
 for event in dev.read_loop():
 	# if we get a "key pressed down" event
@@ -141,7 +148,37 @@ for event in dev.read_loop():
 			# if we do have a playlist we use send_action to fire off the PlayMedia command
 			else:
 				print "Card {c} is assigned to {p}".format(c=card, p=playlist)
-				xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s)" % {'plpath': playlistpath, 'pl': playlist})
+				# check the shuffling options, none? just play it
+				if shuffle_string is None and no_shuffle_string is None:
+					xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s)" % {'plpath': playlistpath, 'pl': playlist})
+				elif shuffle_string is not None:
+					# does this playlist name contain our shuffle_string?
+					if shuffle_string in playlist:
+						print "%s contains the shuffle string %s" % (playlist, shuffle_string)
+            # pick a random line number from our playlist
+            randomtrack = randrange(tracknum(playlistpath + playlist))
+            # start playing back this playlist, starting at the random track
+            xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s,playoffset=%d(track))" % {'plpath': playlistpath, 'pl': playlist, 'track': randomtrack})
+            # enable random playback
+            xbmc.send_action("XBMC.PlayerControl(RandomOn)")
+          else:
+            xbmc.send_action("XBMC.PlayerControl(RandomOff)")
+            xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s)" % {'plpath': playlistpath, 'pl': playlist})
+
+				elif no_shuffle_string is not None:
+					# does this playlist name NOT contain our no_shuffle_string?
+					if no_shuffle_string not in playlist:
+						print "%s contains the shuffle string %s" % (playlist, shuffle_string)
+            # pick a random line number from our playlist
+            randomtrack = randrange(tracknum(playlistpath + playlist))
+            # start playing back this playlist, starting at the random track
+            xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s,playoffset=%d(track))" % {'plpath': playlistpath, 'pl': playlist, 'track': randomtrack})
+            # enable random playback
+            xbmc.send_action("XBMC.PlayerControl(RandomOn)")
+          else:
+            xbmc.send_action("XBMC.PlayerControl(RandomOff)")
+            xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s)" % {'plpath': playlistpath, 'pl': playlist})
+
 			# empty out our list to be ready for the next swipe
 			cardnumber = []
 		else:
