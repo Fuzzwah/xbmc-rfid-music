@@ -122,20 +122,25 @@ for event in dev.read_loop():
 			# get the playlist which is assigned to this card number
 			# if it doesn't have one assigned, set up the error message flag
 			playlist = db.get(card,None)
+			if playlist.endswith('.m3u'):
+				print "Card's playlist has m3u extension"
+			else:
+				print "Card's playlist didn't have m3u extension"
+				playlist = playlist + '.m3u'
 			# if the card didn't have a playlist assigned, fire api call to display msg in xbmc
 			if playlist == None:
 				xbmc.send_notification(PROGRAM, "Card has no playlist assigned", "3000")
-        print >> sys.stderr, "Card {c} has no playlist assigned".format(c=card)
+				print >> sys.stderr, "Card {c} has no playlist assigned".format(c=card)
 			# check if this playlist is one of the "special" ones
 			elif playlist == "shuffle":
-        print "Card {c} is assigned to {p}".format(c=card, p=playlist)
+				print "Card {c} is assigned to {p}".format(c=card, p=playlist)
 				xbmc.send_action("XBMC.PlayerControl(Random)")
 			elif playlist == "reboot":
-        print "Card {c} is assigned to {p}".format(c=card, p=playlist)
+				print "Card {c} is assigned to {p}".format(c=card, p=playlist)
 				xbmc.send_action("XBMC.Reset")
 			# if we do have a playlist we use send_action to fire off the PlayMedia command
 			else:
-        print "Card {c} is assigned to {p}".format(c=card, p=playlist)
+				print "Card {c} is assigned to {p}".format(c=card, p=playlist)
 				xbmc.send_action("XBMC.PlayMedia(%(plpath)s%(pl)s)" % {'plpath': playlistpath, 'pl': playlist})
 			# empty out our list to be ready for the next swipe
 			cardnumber = []
