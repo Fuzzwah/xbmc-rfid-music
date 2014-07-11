@@ -1,0 +1,1 @@
+SUBSYSTEMS=="usb" ATTRS{idVendor}=="05fe" ATTRS{idProduct}=="1010" RUN+="/etc/init.d/xbmc-rfid-music start" 
