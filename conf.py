@@ -2,7 +2,7 @@
 rfidreader = "/dev/input/event0"
 
 # path to playlist files, ensure you have the trailing slash
-playlistpath = "/home/xbian/.xbmc/userdata/Playlists/music/"
+playlistpath = "/home/xbian/.xbmc/userdata/playlists/music/"
 
 # base path of where your music is stored 
 # (this is only used by the playlist creator m3u.py)
